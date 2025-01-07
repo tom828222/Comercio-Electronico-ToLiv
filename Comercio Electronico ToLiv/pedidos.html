@@ -1,3 +1,4 @@
+<!-- Modificación Tomas -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Pedidos</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function cambiarEstado(pedidoId) {
+            let estado = document.getElementById('estado_' + pedidoId).value;
+            document.getElementById('estado_texto_' + pedidoId).innerText = estado;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -27,6 +34,7 @@
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Estado</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,13 +42,27 @@
                     <td>001</td>
                     <td>Producto 1</td>
                     <td>2</td>
-                    <td>Pendiente</td>
+                    <td id="estado_texto_001">Pendiente</td>
+                    <td>
+                        <select id="estado_001" onchange="cambiarEstado(001)">
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Enviado">Enviado</option>
+                            <option value="Entregado">Entregado</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>002</td>
                     <td>Producto 2</td>
                     <td>1</td>
-                    <td>Enviado</td>
+                    <td id="estado_texto_002">Enviado</td>
+                    <td>
+                        <select id="estado_002" onchange="cambiarEstado(002)">
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Enviado">Enviado</option>
+                            <option value="Entregado">Entregado</option>
+                        </select>
+                    </td>
                 </tr>
             </tbody>
         </table>
